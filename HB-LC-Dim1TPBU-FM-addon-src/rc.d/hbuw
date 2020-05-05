@@ -11,7 +11,7 @@ RCD_DIR=/usr/local/etc/config/rc.d
 start() 
 {
   echo 'Starting...'
-  if [ ! -f /firmware/rftypes/hb_uw_sen_thpl.xml ]; then
+  if [ ! -f /firmware/rftypes/hb_lc_dim_1pbu_fm.xml ]; then
     cd ${ADDON_DIR}
     ./installHBUW  > $LOGFILE 2> /dev/null & echo $!> $PIDFILE
   else
@@ -34,7 +34,7 @@ stop
 ;;
 uninstall)
     mount -o remount,rw /
-    rm -f /firmware/rftypes/hb_uw_sen_thpl*
+    rm -f /firmware/rftypes/hb_lc_dim_1pbu_fm*
     rm -f /www/config/img/devices/50/hb_lc_dim_1pbu_fm-*
     rm -f /www/config/img/devices/250/hb_lc_dim_1pbu_fm-*
     #if [ -f $ADDON_DIR\DEVDB.tcl.hbuwsave ]; then
@@ -56,10 +56,10 @@ start
 ;;
 
 info)
-  echo "Info: <b>HB-LC-Sw1PBU-FM Addon</b><br>"
+  echo "Info: <b>HB-LC-Dim1PBU-FM Addon</b><br>"
   echo "Info: <a href='https://github.com/kc-GitHub/Wettersensor'>https://github.com/kc-GitHub/Wettersensor</a>"
   echo "Version: $(cat ${ADDON_DIR}/VERSION)"
-  echo "Name: HB-LC-Sw1PBU-FM"
+  echo "Name: HB-LC-Dim1PBU-FM"
   echo "Operations: uninstall"
   #echo "Config-Url: ${CONFIG_URL}"
   echo "Update: /addons/hbuw/update-check.cgi"
