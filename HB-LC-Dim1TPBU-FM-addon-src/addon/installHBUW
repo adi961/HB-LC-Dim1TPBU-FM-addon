@@ -21,8 +21,7 @@ devdescrFile="/www/config/devdescr/DEVDB.tcl"
 devdescrSearch="array[[:space:]]*set[[:space:]]*DEV_PATHS[[:space:]]*{"
 
 devdescrInsert=""
-devdescrInsert="$devdescrInsert HB-LC-Sw1PBUy-I {{50 \/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-i_thumb.png} {250 \/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-i.png}} "
-devdescrInsert="$devdescrInsert HB-LC-Dim1PBU-FM-O {{50 \/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-o_thumb.png} {250 \/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-o.png}} "
+devdescrInsert="$devdescrInsert HB-LC-Dim1PBU-FM {{50 \/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-i_thumb.png} {250 \/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-i.png}} "
 
 if [ -z "`cat $devdescrFile | grep \"$device\"`" ]; then
 	cp -a $devdescrFile $ADDON_DIR/DEVDB.tcl.hbuwsave
@@ -34,19 +33,12 @@ webuiFile="/www/webui/webui.js"
 webuiSearch="DEV_HIGHLIGHT[[:space:]]*=[[:space:]]*new Array();"
 
 webuiInsert="\n"
-webuiInsert="$webuiInsert DEV_HIGHLIGHT['HB-LC-Dim1PBU-FM-I'] = new Object();\n"
-webuiInsert="$webuiInsert DEV_LIST.push('HB-LC-Dim1PBU-FM-I');\n"
-webuiInsert="$webuiInsert DEV_DESCRIPTION['HB-LC-Dim1PBU-FM-I']='Universal Funk- Temperatur-\/ Feuchte-\/ Luftdruck-\/ Helligkeitssensor (Innen)';\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-I'] = new Object();\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-I']['50'] = '\/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-i_thumb.png';\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-I']['250'] = '\/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-i.png';\n"
-
-webuiInsert="$webuiInsert DEV_HIGHLIGHT['HB-LC-Dim1PBU-FM-O'] = new Object();\n"
-webuiInsert="$webuiInsert DEV_LIST.push('HB-LC-Dim1PBU-FM-O');\n"
-webuiInsert="$webuiInsert DEV_DESCRIPTION['HB-LC-Dim1PBU-FM-O']='Universal Funk- Temperatur-\/ Feuchte-\/ Luftdruck-\/ Helligkeitssensor (Au\&szlig;en)';\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-O'] = new Object();\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-O']['50'] = '\/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-o_thumb.png';\n"
-webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM-O']['250'] = '\/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-o.png';\n"
+webuiInsert="$webuiInsert DEV_HIGHLIGHT['HB-LC-Dim1PBU-FM'] = new Object();\n"
+webuiInsert="$webuiInsert DEV_LIST.push('HB-LC-Dim1PBU-FM');\n"
+webuiInsert="$webuiInsert DEV_DESCRIPTION['HB-LC-Dim1PBU-FM']='Dimmer ';\n"
+webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM'] = new Object();\n"
+webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM']['50'] = '\/config\/img\/devices\/50\/hb_lc_dim_1pbu_fm-i_thumb.png';\n"
+webuiInsert="$webuiInsert DEV_PATHS['HB-LC-Dim1PBU-FM']['250'] = '\/config\/img\/devices\/250\/hb_lc_dim_1pbu_fm-i.png';\n"
 
 if [ -z "`cat $webuiFile | grep \"$device\"`" ]; then
 	cp -a $webuiFile $ADDON_DIR/webui.js.hbuwsave
