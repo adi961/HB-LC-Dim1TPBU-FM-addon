@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<device version="13" supports_aes="true">
+<device version="1" supports_aes="true">
     <supported_types>
         <type name="HB-LC-Dim1PBU-FM" id="HB-LC-Dim1PBU-FM" updatable="true" priority="2">
             <parameter index="10.0" size="2.0" const_value="0xf299"/>
@@ -153,6 +153,32 @@
             <parameter type="integer" const_value="0" param="STATE_FLAGS"/>
             <parameter type="integer" const_value="0" param="INHIBIT"/>
             <parameter type="integer" const_value="0" param="LEVEL_REAL"/>
+        </frame>
+        <frame id="KEY_EVENT_SHORT" direction="from_device" allowed_receivers="CENTRAL,BROADCAST,OTHER" event="true" type="0x40" channel_field="9:0.6">
+            <parameter type="integer" index="9.6" size="0.1" const_value="0"/>
+            <parameter type="integer" index="10.0" size="1.0" param="COUNTER"/>
+            <parameter type="integer" index="10.0" size="1.0" param="TEST_COUNTER"/>
+        </frame>
+        <frame id="KEY_EVENT_LONG" direction="from_device" allowed_receivers="CENTRAL,BROADCAST,OTHER" event="true" type="0x40" channel_field="9:0.6">
+            <parameter type="integer" index="9.6" size="0.1" const_value="1"/>
+            <parameter type="integer" index="10.0" size="1.0" param="COUNTER"/>
+            <parameter type="integer" index="10.0" size="1.0" param="TEST_COUNTER"/>
+        </frame>
+        <frame id="KEY_EVENT_LONG_BIDI" direction="from_device" allowed_receivers="CENTRAL,BROADCAST,OTHER" event="true" type="0x40" channel_field="9:0.6">
+            <parameter type="integer" index="1.5" size="0.1" const_value="1"/>
+            <parameter type="integer" index="9.6" size="0.1" const_value="1"/>
+            <parameter type="integer" index="10.0" size="1.0" param="COUNTER"/>
+            <parameter type="integer" index="10.0" size="1.0" param="TEST_COUNTER"/>
+        </frame>
+        <frame id="KEY_SIM_SHORT" direction="from_device" type="0x40" channel_field="9:0.6">
+            <parameter type="integer" index="9.6" size="0.1" const_value="0"/>
+            <parameter type="integer" index="9.7" size="0.1" const_value="0"/>
+            <parameter type="integer" index="10.0" size="1.0" param="SIM_COUNTER"/>
+        </frame>
+        <frame id="KEY_SIM_LONG" direction="from_device" type="0x40" channel_field="9:0.6">
+            <parameter type="integer" index="9.6" size="0.1" const_value="1"/>
+            <parameter type="integer" index="9.7" size="0.1" const_value="0"/>
+            <parameter type="integer" index="10.0" size="1.0" param="SIM_COUNTER"/>
         </frame>
     </frames>
     <paramset_defs>
