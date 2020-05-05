@@ -1,0 +1,71 @@
+#!/bin/sh
+
+NAME=hbuw
+PIDFILE=/var/run/$NAME.pid
+LOGFILE=/var/log/$NAME.log
+
+ADDON_DIR=/usr/local/addons/${NAME}
+WWW_DIR=/etc/config/addons/www/${NAME}
+RCD_DIR=/usr/local/etc/config/rc.d
+
+start() 
+{
+  echo 'Starting...'
+  if [ ! -f /firmware/rftypes/hb_uw_sen_thpl.xml ]; then
+    cd ${ADDON_DIR}
+    ./installHBUW  > $LOGFILE 2> /dev/null & echo $!> $PIDFILE
+  else
+   echo "Nothing to do."
+  fi
+
+}
+
+stop() 
+{
+  echo 'Stopped'
+}
+
+case "$1" in
+start)
+start
+;;
+stop)
+stop
+;;
+uninstall)
+    mount -o remount,rw /
+    rm -f /firmware/rftypes/hb_uw_sen_thpl*
+    rm -f /www/config/img/devices/50/hb_lc_dim_1pbu_fm-*
+    rm -f /www/config/img/devices/250/hb_lc_dim_1pbu_fm-*
+    #if [ -f $ADDON_DIR\DEVDB.tcl.hbuwsave ]; then
+    #  rm -f /www/config/devdescr/DEVDB.tcl
+    #  mv $ADDON_DIR\DEVDB.tcl.hbuwsave /www/config/devdescr/DEVDB.tcl
+    #fi
+    #if [ -f $ADDON_DIR\webui.js.hbuwsave ]; then
+    #  rm -f /www/webui/webui.js
+    #  mv $ADDON_DIR\webui.js.hbuwsave /www/webui/webui.js
+    #fi
+    rm -rf $ADDON_DIR
+    rm -rf $WWW_DIR
+    mount -o remount,ro /
+  ;;
+  
+restart)
+stop
+start
+;;
+
+info)
+  echo "Info: <b>HB-LC-Sw1PBU-FM Addon</b><br>"
+  echo "Info: <a href='https://github.com/kc-GitHub/Wettersensor'>https://github.com/kc-GitHub/Wettersensor</a>"
+  echo "Version: $(cat ${ADDON_DIR}/VERSION)"
+  echo "Name: HB-LC-Sw1PBU-FM"
+  echo "Operations: uninstall"
+  #echo "Config-Url: ${CONFIG_URL}"
+  echo "Update: /addons/hbuw/update-check.cgi"
+    ;;
+	
+*)
+start
+echo "Usage: $0 {start|stop|restart|uninstall}"
+esac
