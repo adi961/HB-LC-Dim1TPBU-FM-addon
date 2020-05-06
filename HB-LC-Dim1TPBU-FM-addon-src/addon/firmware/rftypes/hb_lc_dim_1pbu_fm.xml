@@ -57,7 +57,7 @@
                 </parameter>
             </paramset>
         </channel>
-        <channel index="1" type="DIMMER" count="1">
+        <channel index="3" type="DIMMER" count="1">
             <link_roles>
                 <target name="SWITCH"/>
                 <target name="WEATHER_CS"/>
@@ -78,42 +78,22 @@
                 <value id="LCD_LEVEL_INTERP" value="1"/>
             </enforce_link>
         </channel>
-        <channel index="2" type="VIRTUAL_DIMMER" count="2">
+        <channel autoregister="true" index="1" type="KEY" count="2" pair_function="BA" function="A" paired="true" aes_default="false">
             <link_roles>
-                <target name="SWITCH"/>
-                <target name="WEATHER_CS"/>
-                <target name="WCS_TIPTRONIC_SENSOR"/>
+                <source name="SWITCH"/>
+                <source name="KEYMATIC"/>
+                <source name="WINMATIC"/>
+                <source name="REMOTECONTROL_RECEIVER"/>
             </link_roles>
-            <paramset type="MASTER" id="dimmer_virt_ch_master">
-                <subset ref="general_parameters"/>
+            <paramset type="MASTER" id="remote_ch_master">
+                <subset ref="key_paramset"/>
             </paramset>
-            <paramset type="VALUES" id="dimmer_ch_values">
-                <subset ref="dimmer_valueset"/>
+            <paramset type="VALUES" id="remote_ch_values">
+                <subset ref="key_valueset"/>
             </paramset>
-            <paramset type="LINK" id="dimmer_ch_link">
-                <subset ref="dimmer_linkset"/>
+            <paramset type="LINK" id="remote_ch_link">
+                <subset ref="key_linkset"/>
             </paramset>
-            <enforce_link>
-                <value id="LCD_SYMBOL" value="1"/>
-                <value id="LCD_LEVEL_INTERP" value="1"/>
-            </enforce_link>
-        </channel>
-        <channel autoregister="true" index="3" type="KEY" count="2" pair_function="BA" function="A" paired="true" aes_default="false">
-        <link_roles>
-            <source name="SWITCH"/>
-            <source name="KEYMATIC"/>
-            <source name="WINMATIC"/>
-            <source name="REMOTECONTROL_RECEIVER"/>
-        </link_roles>
-        <paramset type="MASTER" id="remote_ch_master">
-            <subset ref="key_paramset"/>
-        </paramset>
-        <paramset type="VALUES" id="remote_ch_values">
-            <subset ref="key_valueset"/>
-        </paramset>
-        <paramset type="LINK" id="remote_ch_link">
-            <subset ref="key_linkset"/>
-        </paramset>
         </channel>
     </channels>
     <frames>
