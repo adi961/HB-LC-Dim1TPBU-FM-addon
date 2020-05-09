@@ -213,11 +213,6 @@
                 <logical type="integer" default="80" min="30" max="100" unit="�C"/>
                 <physical type="integer" interface="config" list="3" index="50" size="1"/>
             </parameter>
-            <parameter id="FUSE_DELAY" operations="read,write">
-                <logical type="float" default="1.0" min="0.0" max="2.55" unit="s"/>
-                <physical type="integer" interface="config" list="3" index="51" size="1"/>
-                <conversion type="float_integer_scale" factor="100"/>
-            </parameter>
         </paramset>
         <paramset id="general_parameters">
             <parameter id="AES_ACTIVE" ui_flags="internal">
