@@ -144,7 +144,6 @@
             <parameter type="integer" index="12.4" size="0.2" param="DIRECTION_FLAGS"/>
             <parameter type="integer" index="14.0" size="1.0" param="LEVEL_REAL"/>
         </frame>
-
         <frame id="ACK_STATUS" direction="from_device" event="true" type="0x02" subtype="1" subtype_index="9" channel_field="10">
             <parameter type="integer" index="11.0" size="1.0" param="LEVEL"/>
             <parameter type="integer" index="12.1" size="0.3" param="ERROR"/>
@@ -197,16 +196,16 @@
         <paramset id="physical_parameters">
             <parameter id="REDUCE_TEMP_LEVEL" operations="read,write">
                 <logical type="integer" default="75" min="30" max="100" unit="�C"/>
-                <physical type="integer" interface="config" list="3" index="52" size="1"/>
+                <physical type="integer" interface="config" list="1" index="52" size="1"/>
             </parameter>
             <parameter id="REDUCE_LEVEL" operations="read,write">
                 <logical type="float" min="0.0" max="1.0" default="0.4" unit="100%"/>
-                <physical type="integer" interface="config" list="3" index="53" size="1"/>
+                <physical type="integer" interface="config" list="1" index="53" size="1"/>
                 <conversion type="float_integer_scale" factor="200"/>
             </parameter>
             <parameter id="OVERTEMP_LEVEL" operations="read,write">
                 <logical type="integer" default="80" min="30" max="100" unit="�C"/>
-                <physical type="integer" interface="config" list="3" index="50" size="1"/>
+                <physical type="integer" interface="config" list="1" index="50" size="1"/>
             </parameter>
         </paramset>
         <paramset id="general_parameters">
@@ -216,25 +215,25 @@
             </parameter>
             <parameter id="TRANSMIT_TRY_MAX" operations="read,write">
                 <logical type="integer" min="0" max="10" default="6"/>
-                <physical type="integer" interface="config" list="3" index="48" size="1"/>
+                <physical type="integer" interface="config" list="1" index="48" size="1"/>
             </parameter>
             <parameter id="POWERUP_ACTION" operations="read,write">
                 <logical type="option">
                     <option id="POWERUP_OFF" default="true"/>
                     <option id="POWERUP_ON"/>
                 </logical>
-                <physical type="integer" interface="config" list="3" index="86" size="0.1"/>
+                <physical type="integer" interface="config" list="1" index="86" size="0.1"/>
             </parameter>
             <parameter id="STATUSINFO_MINDELAY" operations="read,write">
                 <logical type="float" min="0.5" max="15.5" default="2.0" unit="s">
                     <special_value id="NOT_USED" value="0.0"/>
                 </logical>
-                <physical type="integer" interface="config" list="3" index="87.0" size="0.5"/>
+                <physical type="integer" interface="config" list="1" index="87.0" size="0.5"/>
                 <conversion type="float_integer_scale" factor="2"/>
             </parameter>
             <parameter id="STATUSINFO_RANDOM" operations="read,write">
                 <logical type="float" min="0.0" max="7.0" default="1.0" unit="s"/>
-                <physical type="integer" interface="config" list="3" index="87.5" size="0.3"/>
+                <physical type="integer" interface="config" list="1" index="87.5" size="0.3"/>
                 <conversion type="float_integer_scale" factor="1"/>
             </parameter>
             <parameter id="LOGIC_COMBINATION" operations="read,write">
@@ -257,7 +256,7 @@
                     <option id="LOGIC_INVERSMINUS"/>
                     <option id="LOGIC_INVERSMUL"/>
                 </logical>
-                <physical type="integer" interface="config" list="3" index="89" size="0.5"/>
+                <physical type="integer" interface="config" list="1" index="89" size="0.5"/>
             </parameter>
         </paramset>
         <paramset id="dimmer_valueset">
@@ -1208,12 +1207,12 @@
         <paramset id="key_paramset">
             <parameter id="LONG_PRESS_TIME">
                 <logical type="float" min="0.3" max="1.8" default="0.4" unit="s"/>
-                <physical type="integer" interface="config" list="3" index="4.4" size="0.4"/>
+                <physical type="integer" interface="config" list="1" index="4.4" size="0.4"/>
                 <conversion type="float_integer_scale" factor="10" offset="-0.3"/>
             </parameter>
             <parameter id="DBL_PRESS_TIME">
                 <logical type="float" min="0.0" max="1.5" default="0.0" unit="s"/>
-                <physical type="integer" interface="config" list="3" index="9.0" size="0.4"/>
+                <physical type="integer" interface="config" list="1" index="9.0" size="0.4"/>
                 <conversion type="float_integer_scale" factor="10" offset="0.0"/>
             </parameter>
             <parameter id="AES_ACTIVE" ui_flags="internal">
